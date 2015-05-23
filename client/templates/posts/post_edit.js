@@ -6,11 +6,13 @@ Template.postEdit.events({
 
     var postProperties = {
       url: $(e.target).find('[name=url]').val(),
-      title: $(e.target).find('[name=title]').val()
+      title: $(e.target).find('[name=title]').val(),
+      id: currentPostId
     }
 
-    Posts.update(currentPostId, {$set: postProperties}, function(error) {
-      
+    Meteor.call('postUpdate', postProperties, function(error, result) {
+      if (result.postExists)
+      	alert('This link has already been posted');
       if (error) {
         // display the error to the user
         alert(error.reason);
