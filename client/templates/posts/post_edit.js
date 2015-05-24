@@ -7,7 +7,7 @@ Template.postEdit.events({
     var postProperties = {
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val(),
-      id: currentPostId
+      _id: currentPostId
     }
 
     Meteor.call('postUpdate', postProperties, function(error, result) {
