@@ -10,9 +10,9 @@ Template.errors.helpers({
 	}
 });
 
-Template.errors.onRendered(function() {
-	var error = this.data;
-	Meteor.setTimeout(function () {
-		Errors.remove(error._id);
-	}, 3000);
+Template.error.onRendered(function() {
+  var error = this.data;
+  Meteor.setTimeout(function () {
+    Errors.remove(error._id);
+  }, 3000);
 });
