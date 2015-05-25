@@ -12,7 +12,7 @@ Template.postEdit.events({
 
     Meteor.call('postUpdate', postProperties, function(error, result) {
       if (result.postExists)
-      	alert('This link has already been posted');
+      	throwError('This link has already been posted');
       if (error) {
         // display the error to the user
         throwError(error.reason);
